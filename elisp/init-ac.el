@@ -1,0 +1,5 @@
+;;(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-auto-start 4)
+(define-key ac-mode-map (kbd "TAB") 'auto-complete)
