@@ -53,6 +53,7 @@
   :config
   (global-company-mode t)
   (define-key company-mode-map (kbd "TAB") 'company-complete)
+  (define-key company-mode-map (kbd "M-;") 'company-files) 
   :demand)
 
 (use-package evil
@@ -140,6 +141,7 @@
 
 
 (use-package ggtags
+  :ensure t
   :init
   (setenv "GTAGSTHROUGH" "true")
   (setenv "GTAGSLABLE" "gtags")
@@ -154,4 +156,14 @@
   :demand)
 
 (use-package web-mode
-:demand)
+  :demand)
+
+(use-package ensime 
+  :ensure t
+  :pin melpa-stable)
+
+(use-package caroline-theme
+  :ensure t
+  :config
+  (load-theme 'caroline t)
+  :demand)
