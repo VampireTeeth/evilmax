@@ -1,21 +1,21 @@
 ;; global variables
-(setq
- inhibit-startup-screen t
- create-lockfiles nil
- make-backup-files nil column-number-mode t
- scroll-error-top-bottom t
- show-paren-delay 0.5
- use-package-always-ensure t
- sentence-end-double-space nil)
-
-;; buffer local variables
-(setq-default
- indent-tabs-mode nil
- tab-width 4
- c-basic-offset 4)
-
+;;(setq
+;; inhibit-startup-screen t
+;; create-lockfiles nil
+;; make-backup-files nil column-number-mode t
+;; scroll-error-top-bottom t
+;; show-paren-delay 0.5
+;; use-package-always-ensure t
+;; sentence-end-double-space nil)
+;;
+;;;; buffer local variables
+;;(setq-default
+;; indent-tabs-mode nil
+;; tab-width 4
+;; c-basic-offset 4)
+;;
 ;; modes
-(electric-indent-mode 0)
+;;(electric-indent-mode 0)
 
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
@@ -33,6 +33,34 @@
     (mark-whole-buffer)
     (kill-region (point) (mark))))
 
+(defun my:misc-config()
+  ;;(setq debug-on-error t)
+  (global-hl-line-mode)
+  ;;(set-cursor-color "LightGreen")
+  ;;(set-face-background hl-line-face "gray5")
+  ;;(set-face-underline hl-line-face nil)
+  (setq make-backup-files nil)
+  (setq auto-save-default nil)
+  (setq ediff-split-window-function 'split-window-horizontally)
+  ;;(add-hook 'after-save-hook 'delete-trailing-whitespace)
+
+  (setq default-frame-alist
+        '((width . 100)
+          (height . 35)
+          (menu-bar-lines . 2)))
+  (cond
+   ((find-font (font-spec :name "Dejavu Sans Mono"))
+    (set-frame-font "Dejavu Sans Mono-14"))
+   ((find-font (font-spec :name "Lucida Console"))
+    (set-frame-font "Lucida Console-14")))
+  (set-face-attribute 'default nil :height 140)
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq c-basic-offset 4)
+  (load-theme 'foggy-night t t)
+  (enable-theme 'foggy-night)
+  ;;(toggle-debug-on-error)
+  )
 
 ;; the package manager
 (require 'package)
@@ -156,6 +184,15 @@
   :demand)
 
 (use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   :demand)
 
 (use-package ensime 
@@ -164,6 +201,21 @@
 
 (use-package caroline-theme
   :ensure t
-  :config
-  (load-theme 'caroline t)
   :demand)
+
+(use-package foggy-night-theme
+  :ensure t
+  :demand)
+
+(use-package jdee
+  :ensure t
+  :config
+  (if (eq nil (getenv "JDEE_SERVER_DIR"))
+      (setenv "JDEE_SERVER_DIR" "~/.emacs.d/jdee/jdee-server/jdee-server-master"))
+  (setq jdee-server-dir (getenv "JDEE_SERVER_DIR"))
+  (setq jdee-complete-function 'jdee-complete-minibuf)
+  (define-key jdee-mode-map (kbd "M-'") 'jdee-complete)
+  :demand)
+
+
+(add-hook 'after-init-hook 'my:misc-config)
