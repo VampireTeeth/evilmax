@@ -222,6 +222,7 @@
   :config
   (require 'eclim)
   (require 'eclimd)
+  (global-eclim-mode)
   (custom-set-variables
    '(eclim-eclipse-dirs '((getenv "ECLIM_ECLIPSE_DIRS")))
    '(eclim-executable (getenv "ECLIM_EXECUTABLE"))
@@ -229,6 +230,7 @@
   (setq help-at-pt-display-when-idle t)
   (setq help-at-pt-timer-delay 0.1)
   (help-at-pt-set-timer)
+  (add-hook 'java-mode-hook (lambda () (eclim-mode 1)))
   
   (use-package company-emacs-eclim
     :ensure t
