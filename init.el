@@ -84,44 +84,44 @@
   (define-key company-mode-map (kbd "M-;") 'company-files)
   :demand)
 
-;;(use-package evil
-;;  :config
-;;  (evil-mode 1)
-;;
-;;  (use-package evil-leader
-;;    :config
-;;    (global-evil-leader-mode)
-;;    (evil-leader/set-leader "<SPC>")
-;;    (evil-leader/set-key "j" 'evil-scroll-down)
-;;    (evil-leader/set-key "k" 'evil-scroll-up)
-;;    (evil-leader/set-key "h" 'evil-scroll-left)
-;;    (evil-leader/set-key "l" 'evil-scroll-right)
-;;    (evil-leader/set-key "wj" 'evil-window-down)
-;;    (evil-leader/set-key "wk" 'evil-window-up)
-;;    (evil-leader/set-key "wh" 'evil-window-left)
-;;    (evil-leader/set-key "wl" 'evil-window-right)
-;;    (evil-leader/set-key "v" 'evil-visual-block)
-;;    (evil-leader/set-key "bb" 'switch-to-buffer)
-;;    (evil-leader/set-key "bk" 'kill-buffer)
-;;    (evil-leader/set-key "uu" 'undo-tree-visualize)
-;;    (evil-leader/set-key "ff" 'find-file)
-;;    (evil-leader/set-key "<RET>" 'evil-jump-item)
-;;    (evil-leader/set-key "1" 'delete-other-windows)
-;;    (evil-leader/set-key "0" 'delete-window)
-;;    (evil-leader/set-key "2" 'split-window-below)
-;;    (evil-leader/set-key "3" 'split-window-right)
-;;    (evil-leader/set-key "yy" 'my:copy-whole-buffer)
-;;    (evil-leader/set-key "yk" 'my:kill-whole-buffer)
-;;    (evil-leader/set-key "]" 'sgml-skip-tag-forward)
-;;    (evil-leader/set-key "[" 'sgml-skip-tag-backward)
-;;    :demand)
-;;
-;;  (use-package evil-escape
-;;    :config
-;;    (evil-escape-mode t)
-;;    (setq-default evil-escape-key-sequence "jk")
-;;    :demand)
-;;  :demand)
+(use-package evil
+  :config
+  (evil-mode 1)
+
+  (use-package evil-leader
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key "j" 'evil-scroll-down)
+    (evil-leader/set-key "k" 'evil-scroll-up)
+    (evil-leader/set-key "h" 'evil-scroll-left)
+    (evil-leader/set-key "l" 'evil-scroll-right)
+    (evil-leader/set-key "wj" 'evil-window-down)
+    (evil-leader/set-key "wk" 'evil-window-up)
+    (evil-leader/set-key "wh" 'evil-window-left)
+    (evil-leader/set-key "wl" 'evil-window-right)
+    (evil-leader/set-key "v" 'evil-visual-block)
+    (evil-leader/set-key "bb" 'switch-to-buffer)
+    (evil-leader/set-key "bk" 'kill-buffer)
+    (evil-leader/set-key "uu" 'undo-tree-visualize)
+    (evil-leader/set-key "ff" 'find-file)
+    (evil-leader/set-key "<RET>" 'evil-jump-item)
+    (evil-leader/set-key "1" 'delete-other-windows)
+    (evil-leader/set-key "0" 'delete-window)
+    (evil-leader/set-key "2" 'split-window-below)
+    (evil-leader/set-key "3" 'split-window-right)
+    (evil-leader/set-key "yy" 'my:copy-whole-buffer)
+    (evil-leader/set-key "yk" 'my:kill-whole-buffer)
+    (evil-leader/set-key "]" 'sgml-skip-tag-forward)
+    (evil-leader/set-key "[" 'sgml-skip-tag-backward)
+    :demand)
+
+  (use-package evil-escape
+    :config
+    (evil-escape-mode t)
+    (setq-default evil-escape-key-sequence "jk")
+    :demand)
+  :demand)
 
 
 (use-package ido
@@ -217,27 +217,27 @@
 ;;  (define-key jdee-mode-map (kbd "M-'") 'jdee-complete)
 ;;  :demand)
 
-(use-package eclim
-  :ensure t
-  :config
-  (require 'eclim)
-  (require 'eclimd)
-  (global-eclim-mode)
-  (custom-set-variables
-   '(eclim-eclipse-dirs '((getenv "ECLIM_ECLIPSE_DIRS")))
-   '(eclim-executable (getenv "ECLIM_EXECUTABLE"))
-   '(eclimd-wait-for-process nil))
-  (setq help-at-pt-display-when-idle t)
-  (setq help-at-pt-timer-delay 0.1)
-  (help-at-pt-set-timer)
-  (add-hook 'java-mode-hook (lambda () (eclim-mode 1)))
-  
-  (use-package company-emacs-eclim
-    :ensure t
-    :config
-    (company-emacs-eclim-setup)
-    :demand)
-  :demand)
+;;(use-package eclim
+;;  :ensure t
+;;  :config
+;;  (require 'eclim)
+;;  (require 'eclimd)
+;;  (global-eclim-mode)
+;;  (custom-set-variables
+;;   '(eclim-eclipse-dirs '((getenv "ECLIM_ECLIPSE_DIRS")))
+;;   '(eclim-executable (getenv "ECLIM_EXECUTABLE"))
+;;   '(eclimd-wait-for-process nil))
+;;  (setq help-at-pt-display-when-idle t)
+;;  (setq help-at-pt-timer-delay 0.1)
+;;  (help-at-pt-set-timer)
+;;  (add-hook 'java-mode-hook (lambda () (eclim-mode 1)))
+;;  
+;;  (use-package company-emacs-eclim
+;;    :ensure t
+;;    :config
+;;    (company-emacs-eclim-setup)
+;;    :demand)
+;;  :demand)
 
 (use-package ace-window
   :ensure t
