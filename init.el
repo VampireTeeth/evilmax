@@ -246,4 +246,7 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   :demand)
 
+(use-package cider
+  :ensure t
+  :demand)
 (add-hook 'after-init-hook 'my:misc-config)
