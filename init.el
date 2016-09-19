@@ -82,6 +82,7 @@
   (global-company-mode t)
   (define-key company-mode-map (kbd "TAB") 'company-complete)
   (define-key company-mode-map (kbd "M-;") 'company-files)
+  (setq company-dabbrev-ignore-case nil)
   :demand)
 
 (use-package evil
