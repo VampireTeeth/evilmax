@@ -85,44 +85,44 @@
   (setq company-dabbrev-ignore-case nil)
   :demand)
 
-(use-package evil
-  :config
-  (evil-mode 1)
-
-  (use-package evil-leader
-    :config
-    (global-evil-leader-mode)
-    (evil-leader/set-leader "<SPC>")
-    (evil-leader/set-key "j" 'evil-scroll-down)
-    (evil-leader/set-key "k" 'evil-scroll-up)
-    (evil-leader/set-key "h" 'evil-scroll-left)
-    (evil-leader/set-key "l" 'evil-scroll-right)
-    (evil-leader/set-key "wj" 'evil-window-down)
-    (evil-leader/set-key "wk" 'evil-window-up)
-    (evil-leader/set-key "wh" 'evil-window-left)
-    (evil-leader/set-key "wl" 'evil-window-right)
-    (evil-leader/set-key "v" 'evil-visual-block)
-    (evil-leader/set-key "bb" 'switch-to-buffer)
-    (evil-leader/set-key "bk" 'kill-buffer)
-    (evil-leader/set-key "uu" 'undo-tree-visualize)
-    (evil-leader/set-key "ff" 'find-file)
-    (evil-leader/set-key "<RET>" 'evil-jump-item)
-    (evil-leader/set-key "1" 'delete-other-windows)
-    (evil-leader/set-key "0" 'delete-window)
-    (evil-leader/set-key "2" 'split-window-below)
-    (evil-leader/set-key "3" 'split-window-right)
-    (evil-leader/set-key "yy" 'my:copy-whole-buffer)
-    (evil-leader/set-key "yk" 'my:kill-whole-buffer)
-    (evil-leader/set-key "]" 'sgml-skip-tag-forward)
-    (evil-leader/set-key "[" 'sgml-skip-tag-backward)
-    :demand)
-
-  (use-package evil-escape
-    :config
-    (evil-escape-mode t)
-    (setq-default evil-escape-key-sequence "jk")
-    :demand)
-  :demand)
+;;(use-package evil
+;;  :config
+;;  ;;(evil-mode 1)
+;;
+;;  (use-package evil-leader
+;;    :config
+;;    (global-evil-leader-mode)
+;;    (evil-leader/set-leader "<SPC>")
+;;    (evil-leader/set-key "j" 'evil-scroll-down)
+;;    (evil-leader/set-key "k" 'evil-scroll-up)
+;;    (evil-leader/set-key "h" 'evil-scroll-left)
+;;    (evil-leader/set-key "l" 'evil-scroll-right)
+;;    (evil-leader/set-key "wj" 'evil-window-down)
+;;    (evil-leader/set-key "wk" 'evil-window-up)
+;;    (evil-leader/set-key "wh" 'evil-window-left)
+;;    (evil-leader/set-key "wl" 'evil-window-right)
+;;    (evil-leader/set-key "v" 'evil-visual-block)
+;;    (evil-leader/set-key "bb" 'switch-to-buffer)
+;;    (evil-leader/set-key "bk" 'kill-buffer)
+;;    (evil-leader/set-key "uu" 'undo-tree-visualize)
+;;    (evil-leader/set-key "ff" 'find-file)
+;;    (evil-leader/set-key "<RET>" 'evil-jump-item)
+;;    (evil-leader/set-key "1" 'delete-other-windows)
+;;    (evil-leader/set-key "0" 'delete-window)
+;;    (evil-leader/set-key "2" 'split-window-below)
+;;    (evil-leader/set-key "3" 'split-window-right)
+;;    (evil-leader/set-key "yy" 'my:copy-whole-buffer)
+;;    (evil-leader/set-key "yk" 'my:kill-whole-buffer)
+;;    (evil-leader/set-key "]" 'sgml-skip-tag-forward)
+;;    (evil-leader/set-key "[" 'sgml-skip-tag-backward)
+;;    :demand)
+;;
+;;  (use-package evil-escape
+;;    :config
+;;    (evil-escape-mode t)
+;;    (setq-default evil-escape-key-sequence "jk")
+;;    :demand)
+;;  :demand)
 
 
 (use-package ido
@@ -175,13 +175,13 @@
   (setenv "GTAGSTHROUGH" "true")
   (setenv "GTAGSLABLE" "gtags")
   :config
-  (use-package evil-leader
-    :config
-    (evil-leader/set-key "g." 'ggtags-find-tag-dwim)
-    (evil-leader/set-key "g," 'pop-tag-mark)
-    (evil-leader/set-key "gd" 'ggtags-find-definition)
-    (evil-leader/set-key "gr" 'ggtags-find-reference)
-    :demand)
+;;  (use-package evil-leader
+;;    :config
+;;    (evil-leader/set-key "g." 'ggtags-find-tag-dwim)
+;;    (evil-leader/set-key "g," 'pop-tag-mark)
+;;    (evil-leader/set-key "gd" 'ggtags-find-definition)
+;;    (evil-leader/set-key "gr" 'ggtags-find-reference)
+;;    :demand)
   :demand)
 
 (use-package web-mode
@@ -247,7 +247,27 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   :demand)
 
-(use-package cider
+;;(use-package cider
+;;  :ensure t
+;;  :demand)
+;;
+(use-package god-mode
   :ensure t
+  :config
+  (defun my-update-cursor ()
+    (setq cursor-type (if (or god-local-mode buffer-read-only)
+                          'box
+                        'bar)))
+  (add-hook 'god-mode-enabled-hook 'my-update-cursor)
+  (add-hook 'god-mode-disabled-hook 'my-update-cursor)
+  (let ((limited-colors-p (> 257 (length (defined-colors)))))
+    (cond (god-local-mode
+           (progn
+             (set-face-background 'mode-line (if limited-colors-p "white" "#e9e2cb"))
+             (set-face-background 'mode-line-inactive (if limited-colors-p "white" "#e9e2cb"))))
+          (t (progn
+               (set-face-background 'mode-line (if limited-colors-p "black" "#0a2832"))
+               (set-face-background 'mode-line-inactive (if limited-colors-p "black" "#0a2832"))))))
   :demand)
+
 (add-hook 'after-init-hook 'my:misc-config)
