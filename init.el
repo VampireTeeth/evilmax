@@ -1,4 +1,4 @@
-;; global variables
+;; gloal variables
 ;;(setq
 ;; inhibit-startup-screen t
 ;; create-lockfiles nil
@@ -59,6 +59,7 @@
   (setq c-basic-offset 4)
   (load-theme 'foggy-night t t)
   (enable-theme 'foggy-night)
+  (semantic-mode 1)
   ;;(toggle-debug-on-error)
   )
 
@@ -124,28 +125,58 @@
     :demand)
   :demand)
 
-
-(use-package ido
+(use-package helm
   :ensure t
   :config
-  (ido-mode 1)
-  (ido-everywhere 1)
-
-  (use-package ido-ubiquitous
-    :ensure t
+  (require 'helm-config)
+  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+        helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+        helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+        helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+        helm-ff-file-name-history-use-recentf t
+        helm-echo-input-in-header-line t
+        helm-autoresize-min-height 0
+        helm-autoresize-max-height 20
+        helm-semantic-fuzzy-match t
+        helm-imenu-fuzzy-match t)
+  (helm-autoresize-mode 1)
+  (helm-mode 1)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "C-x b") 'helm-mini)
+  (global-set-key (kbd "C-x C-f") 'helm-find-files)
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+  (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
+  (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+  (define-key helm-command-map (kbd "o") 'helm-occur)
+  (use-package evil-leader
     :config
-    (ido-ubiquitous-mode 1)
-    :demand)
-
-  (use-package ido-vertical-mode
-    :ensure t
-    :config
-    (ido-vertical-mode 1)
-    (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
-    :demand)
-  (use-package ido-completing-read+
+    (global-unset-key (kbd "C-x c"))
+    (evil-leader/set-key "h" 'helm-command-prefix)
+    (evil-leader/set-key "ff" 'helm-find-files)
     :demand)
   :demand)
+
+;;(use-package ido
+;;  :ensure t
+;;  :config
+;;  (ido-mode 1)
+;;  (ido-everywhere 1)
+;;
+;;  (use-package ido-ubiquitous
+;;    :ensure t
+;;    :config
+;;    (ido-ubiquitous-mode 1)
+;;    :demand)
+;;
+;;  (use-package ido-vertical-mode
+;;    :ensure t
+;;    :config
+;;    (ido-vertical-mode 1)
+;;    (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
+;;    :demand)
+;;  (use-package ido-completing-read+
+;;    :demand)
+;;  :demand)
 
 
 (use-package highlight-parentheses
