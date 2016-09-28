@@ -62,6 +62,7 @@
   (semantic-mode 1)
   ;;(toggle-debug-on-error)
   )
+(add-hook 'after-init-hook 'my:misc-config)
 
 ;; the package manager
 (require 'package)
@@ -278,7 +279,6 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   :demand)
 
-(use-package cider
-  :ensure t
-  :demand)
-(add-hook 'after-init-hook 'my:misc-config)
+;;(use-package cider
+;;  :ensure t
+;;  :demand)
