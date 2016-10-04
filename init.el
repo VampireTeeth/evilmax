@@ -67,6 +67,7 @@
   (semantic-mode 1)
   (global-set-key (kbd "<C-return>") ' set-mark-command)
   (global-set-key (kbd "<C-M-return>") 'mark-sexp)
+  (global-set-key (kbd "C-.") 'repeat)
   ;;(toggle-debug-on-error)
   )
 (add-hook 'after-init-hook 'my:misc-config)
@@ -108,7 +109,7 @@
           (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
                                   `(:background ,bg-color :foreground ,bg-color)))
           (setq-local cursor-type nil))))
-
+ 
     (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe)
     ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
     ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
