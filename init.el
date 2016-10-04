@@ -20,10 +20,14 @@
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
 
-(setq url-proxy-services
-      `(("no_proxy" . ,(getenv "NO_PROXY"))
-        ("http" . ,(getenv "HTTP_PROXY"))
-        ("https" . ,(getenv "HTTPS_PROXY"))))
+
+
+(let ((no-proxy (getenv "NO_PROXY"))
+      (http (getenv "HTTP_PROXY"))
+      (https (getenv "HTTPS_PROXY")))
+  (if no-proxy (setq url-proxy-services (cons `("no_proxy" . ,no-proxy)  url-proxy-services)))
+  (if http (setq url-proxy-services (cons `("http" . ,http) url-proxy-services)))
+  (if https (setq url-proxy-services (cons `("https" . ,https) url-proxy-services))))
 
 (defun my:copy-whole-buffer ()
   (interactive)
@@ -408,3 +412,4 @@
 ;;(use-package cider
 ;;  :ensure t
 ;;  :demand)
+
