@@ -20,6 +20,11 @@
 ;; global keybindings
 (global-unset-key (kbd "C-z"))
 
+(setq url-proxy-services
+      `(("no_proxy" . ,(getenv "NO_PROXY"))
+        ("http" . ,(getenv "HTTP_PROXY"))
+        ("https" . ,(getenv "HTTPS_PROXY"))))
+
 (defun my:copy-whole-buffer ()
   (interactive)
   (save-excursion
@@ -326,7 +331,6 @@
 ;;  (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
   :demand)
   
-  
 
 (use-package web-mode
   :ensure t
@@ -390,6 +394,15 @@
   (global-set-key (kbd "C-x C-o") 'ace-window)
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   :demand)
+
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c m m") 'mc/edit-lines)
+  (global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-c m p") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c m h") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C-c m f") 'mc/mark-all-like-this-in-defun))
 
 ;;(use-package cider
 ;;  :ensure t
