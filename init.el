@@ -92,11 +92,13 @@
 (require 'use-package)
 
 (use-package company
+  :ensure t
   :config
   (global-company-mode t)
   (define-key company-mode-map (kbd "TAB") 'company-complete)
   (define-key company-mode-map (kbd "M-;") 'company-files)
   (setq company-dabbrev-ignore-case nil)
+  (setq company-dabbrev-downcase nil)
   :demand)
 
 (use-package helm
@@ -408,6 +410,18 @@
   (global-set-key (kbd "C-c m p") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c m h") 'mc/mark-all-like-this)
   (global-set-key (kbd "C-c m f") 'mc/mark-all-like-this-in-defun))
+
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1))
+
+;;(use-package magit
+;;  :ensure t
+;;  :config
+;;  TODO
+;;  :demand
+;;  :pin melpa-stable)
 
 ;;(use-package cider
 ;;  :ensure t
