@@ -22,13 +22,6 @@
 
 
 
-(let ((no-proxy (getenv "NO_PROXY"))
-      (http (getenv "HTTP_PROXY"))
-      (https (getenv "HTTPS_PROXY")))
-  (if no-proxy (setq url-proxy-services (cons `("no_proxy" . ,no-proxy)  url-proxy-services)))
-  (if http (setq url-proxy-services (cons `("http" . ,http) url-proxy-services)))
-  (if https (setq url-proxy-services (cons `("https" . ,https) url-proxy-services))))
-
 (defun my:copy-whole-buffer ()
   (interactive)
   (save-excursion
@@ -72,8 +65,12 @@
   (global-set-key (kbd "<C-return>") ' set-mark-command)
   (global-set-key (kbd "<C-M-return>") 'mark-sexp)
   (global-set-key (kbd "C-.") 'repeat)
-  ;;(toggle-debug-on-error)
-  )
+  (let ((no-proxy (getenv "NO_PROXY"))
+      (http (getenv "HTTP_PROXY"))
+      (https (getenv "HTTPS_PROXY")))
+  (if no-proxy (setq url-proxy-services (cons `("no_proxy" . ,no-proxy)  url-proxy-services)))
+  (if http (setq url-proxy-services (cons `("http" . ,http) url-proxy-services)))
+  (if https (setq url-proxy-services (cons `("https" . ,https) url-proxy-services))))) ;;(toggle-debug-on-error))
 (add-hook 'after-init-hook 'my:misc-config)
 
 ;; the package manager
@@ -416,14 +413,14 @@
   :config
   (global-undo-tree-mode 1))
 
-;;(use-package magit
-;;  :ensure t
-;;  :config
-;;  TODO
-;;  :demand
-;;  :pin melpa-stable)
+(use-package magit
+  :ensure t
+  :config
+  :demand
+  :pin melpa-stable)
 
 ;;(use-package cider
 ;;  :ensure t
 ;;  :demand)
+
 
