@@ -369,7 +369,6 @@
   (setq jdee-complete-function 'jdee-complete-minibuf)
   (define-key jdee-mode-map (kbd "M-'") 'jdee-complete)
   :demand)
-
 ;;(use-package eclim
 ;;  :ensure t
 ;;  :config
