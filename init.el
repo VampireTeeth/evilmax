@@ -73,6 +73,11 @@
   (if https (setq url-proxy-services (cons `("https" . ,https) url-proxy-services))))) ;;(toggle-debug-on-error))
 (add-hook 'after-init-hook 'my:misc-config)
 
+
+(add-to-list 'load-path "~/.emacs.d/elisp")
+
+(require 'java-deps-gen)
+
 ;; the package manager
 (require 'package)
 (setq
