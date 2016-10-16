@@ -351,6 +351,18 @@
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+  :demand)
+
+(use-package emmet-mode
+  :ensure t
+  :config
+  (require 'emmet-mode)
+  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+  (setq emmet-move-cursor-between-quotes t)
+  (setq emmet-self-closing-tag-style " /")
+  (define-key emmet-mode-keymap (kbd "<C-return>") 'set-mark-command)
   :demand)
 
 ;;(use-package ensime 
