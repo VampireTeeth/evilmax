@@ -37,7 +37,7 @@
 
 (defun my:misc-config()
   ;;(setq debug-on-error t)
-  (global-hl-line-mode)
+  (global-hl-line-mode 0);;Disable the global-hl-line-highlight
   ;;(set-cursor-color "LightGreen")
   ;;(set-face-background hl-line-face "gray5")
   ;;(set-face-underline hl-line-face nil)
@@ -101,6 +101,8 @@
   (define-key company-mode-map (kbd "M-;") 'company-files)
   (setq company-dabbrev-ignore-case nil)
   (setq company-dabbrev-downcase nil)
+  (custom-set-faces
+   '(company-tooltip ((t (:background "gray14" :foreground "LemonChiffon2")))))
   :demand)
 
 (use-package helm
