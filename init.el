@@ -71,7 +71,14 @@
   (if no-proxy (setq url-proxy-services (cons `("no_proxy" . ,no-proxy)  url-proxy-services)))
   (if http (setq url-proxy-services (cons `("http" . ,http) url-proxy-services)))
   (if https (setq url-proxy-services (cons `("https" . ,https) url-proxy-services))))) ;;(toggle-debug-on-error))
+
 (add-hook 'after-init-hook 'my:misc-config)
+
+(defun my:window-config ()
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
+
+(add-hook 'window-setup-hook 'my:window-config)
 
 
 (add-to-list 'load-path "~/.emacs.d/elisp")
