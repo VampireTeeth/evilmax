@@ -59,8 +59,9 @@
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4)
   (setq c-basic-offset 4)
-  (load-theme 'foggy-night t t)
-  (enable-theme 'foggy-night)
+  ;;(load-theme 'foggy-night t t)
+  ;;(enable-theme 'foggy-night)
+  (load-theme 'dracula t)
   (semantic-mode 1)
   (global-set-key (kbd "<C-return>") ' set-mark-command)
   (global-set-key (kbd "<C-M-return>") 'mark-sexp)
@@ -384,6 +385,10 @@
   :demand)
 
 (use-package foggy-night-theme
+  :ensure t
+  :demand)
+
+(use-package dracula-theme
   :ensure t
   :demand)
 
