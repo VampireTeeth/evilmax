@@ -456,3 +456,6 @@
 ;;  :demand)
 
 
+(use-package ztree
+  :ensure t
+  :demand)
