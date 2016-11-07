@@ -392,37 +392,37 @@
   :ensure t
   :demand)
 
-;;(use-package jdee
-;;  :ensure t
-;;  :config
-;;  (if (eq nil (getenv "JDEE_SERVER_DIR"))
-;;      (setenv "JDEE_SERVER_DIR" "~/.emacs.d/jdee/jdee-server/jdee-server-master"))
-;;  (setq jdee-server-dir (getenv "JDEE_SERVER_DIR"))
-;;  (setq jdee-complete-function 'jdee-complete-minibuf)
-;;  (define-key jdee-mode-map (kbd "M-'") 'jdee-complete)
-;;  :demand)
-;;
-(use-package eclim
+(use-package jdee
   :ensure t
   :config
-  (require 'eclim)
-  (require 'eclimd)
-  (global-eclim-mode)
-  (custom-set-variables
-   '(eclim-eclipse-dirs '((getenv "ECLIM_ECLIPSE_DIRS")))
-   '(eclim-executable (getenv "ECLIM_EXECUTABLE"))
-   '(eclimd-wait-for-process nil))
-  (setq help-at-pt-display-when-idle t)
-  (setq help-at-pt-timer-delay 0.1)
-  (help-at-pt-set-timer)
-  (add-hook 'java-mode-hook (lambda () (eclim-mode 1)))
-  
-  (use-package company-emacs-eclim
-    :ensure t
-    :config
-    (company-emacs-eclim-setup)
-    :demand)
+  (if (eq nil (getenv "JDEE_SERVER_DIR"))
+      (setenv "JDEE_SERVER_DIR" "~/.emacs.d/jdee/jdee-server/jdee-server-master"))
+  (setq jdee-server-dir (getenv "JDEE_SERVER_DIR"))
+  (setq jdee-complete-function 'jdee-complete-minibuf)
+  (define-key jdee-mode-map (kbd "M-'") 'jdee-complete)
   :demand)
+
+;;(use-package eclim
+;;  :ensure t
+;;  :config
+;;  (require 'eclim)
+;;  (require 'eclimd)
+;;  (global-eclim-mode)
+;;  (custom-set-variables
+;;   '(eclim-eclipse-dirs '((getenv "ECLIM_ECLIPSE_DIRS")))
+;;   '(eclim-executable (getenv "ECLIM_EXECUTABLE"))
+;;   '(eclimd-wait-for-process nil))
+;;  (setq help-at-pt-display-when-idle t)
+;;  (setq help-at-pt-timer-delay 0.1)
+;;  (help-at-pt-set-timer)
+;;  (add-hook 'java-mode-hook (lambda () (eclim-mode 1)))
+;;  
+;;  (use-package company-emacs-eclim
+;;    :ensure t
+;;    :config
+;;    (company-emacs-eclim-setup)
+;;    :demand)
+;;  :demand)
 
 (use-package ace-window
   :ensure t
