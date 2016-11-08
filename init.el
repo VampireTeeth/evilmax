@@ -403,27 +403,27 @@
 ;;  (define-key jdee-mode-map (kbd "M-'") 'jdee-complete)
 ;;  :demand)
 
-(use-package eclim
-  :ensure t
-  :config
-  (require 'eclim)
-  (require 'eclimd)
-  
-  (custom-set-variables
-   '(eclim-eclipse-dirs (list (file-name-directory (executable-find "eclim"))))
-   '(eclim-executable (executable-find "eclim"))
-   '(eclimd-wait-for-process nil))
-  (setq help-at-pt-display-when-idle t)
-  (setq help-at-pt-timer-delay 0.1)
-  (help-at-pt-set-timer)
-  (add-hook 'java-mode-hook (lambda () (eclim-mode 1)))
-  
-  (use-package company-emacs-eclim
-    :ensure t
-    :config
-    (company-emacs-eclim-setup)
-    :demand)
-  :demand)
+;;(use-package eclim
+;;  :ensure t
+;;  :config
+;;  (require 'eclim)
+;;  (require 'eclimd)
+;;  
+;;  (custom-set-variables
+;;   '(eclim-eclipse-dirs (list (file-name-directory (executable-find "eclim"))))
+;;   '(eclim-executable (executable-find "eclim"))
+;;   '(eclimd-wait-for-process nil))
+;;  (setq help-at-pt-display-when-idle t)
+;;  (setq help-at-pt-timer-delay 0.1)
+;;  (help-at-pt-set-timer)
+;;  (add-hook 'java-mode-hook (lambda () (eclim-mode 1)))
+;;  
+;;  (use-package company-emacs-eclim
+;;    :ensure t
+;;    :config
+;;    (company-emacs-eclim-setup)
+;;    :demand)
+;;  :demand)
 
 (use-package ace-window
   :ensure t
