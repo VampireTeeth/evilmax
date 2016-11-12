@@ -464,3 +464,8 @@
 (use-package ztree
   :ensure t
   :demand)
+
+
+(use-package groovy-mode
+  :ensure t
+  :demand)
