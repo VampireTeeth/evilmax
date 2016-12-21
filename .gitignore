@@ -3,3 +3,4 @@ auto-save-list/*
 ido.last
 ensime/*
 eshell/*
+*.eld
