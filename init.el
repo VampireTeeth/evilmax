@@ -13,17 +13,26 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(setq backup-inhibited t)
+
 (add-to-list 'load-path "~/.emacs.d/custom")
+(add-to-list 'load-path "~/.linuxbrew/Cellar/cmake/3.6.1/share/emacs/site-lisp/cmake")
 
 (require 'setup-general)
-(if (version< emacs-version "24.4")
-    (require 'setup-ivy-counsel)
-  (require 'setup-helm)
-  (require 'setup-helm-gtags))
+;;(if (version< emacs-version "24.4")
+;;    (require 'setup-ivy-counsel)
+;;  (require 'setup-helm)
+;;  (require 'setup-helm-gtags))
 ;; (require 'setup-ggtags)
-(require 'setup-cedet)
+;;(require 'setup-cedet)
 (require 'setup-editing)
+(require 'setup-rtags)
 (require 'setup-c)
+(require 'setup-cmake-ide)
+
+(setq company-backends (delete 'company-semantic company-backends))
+(define-key c-mode-map  [(tab)] 'company-complete)
+(define-key c++-mode-map  [(tab)] 'company-complete)
 
 
 
