@@ -4,5 +4,6 @@ ido.last
 ensime/*
 eshell/*
 *.eld
-**/bin/*
 **/*.*~
+bookmarks
+irony/*

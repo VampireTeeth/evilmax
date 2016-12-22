@@ -58,4 +58,26 @@
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (windmove-default-keybindings)
 
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (ido-vertical-mode 1)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+
+(use-package ido-ubiquitous
+  :ensure t
+  :config
+  (ido-ubiquitous-mode 1))
+
+(use-package smex
+  :ensure t
+  :config
+  (smex-initialize)
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands))
+(global-set-key (kbd "RET") 'newline-and-indent)
+(setq backup-inhibited t)
+
 (provide 'setup-general)
