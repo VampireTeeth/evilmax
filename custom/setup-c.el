@@ -21,4 +21,6 @@
   (define-key c-mode-map  [(tab)] 'company-complete)
   (define-key c++-mode-map  [(tab)] 'company-complete))
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
 (provide 'setup-c)
