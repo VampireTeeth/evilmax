@@ -16,7 +16,7 @@
 (setq backup-inhibited t)
 
 (add-to-list 'load-path "~/.emacs.d/custom")
-(add-to-list 'load-path "~/.linuxbrew/Cellar/cmake/3.6.1/share/emacs/site-lisp/cmake")
+;;(add-to-list 'load-path "~/.linuxbrew/Cellar/cmake/3.6.1/share/emacs/site-lisp/cmake")
 
 (require 'setup-general)
 ;;(if (version< emacs-version "24.4")
@@ -26,16 +26,16 @@
 ;; (require 'setup-ggtags)
 ;;(require 'setup-cedet)
 (require 'setup-editing)
-(require 'setup-rtags)
+;;(require 'setup-rtags)
 ;;(require 'setup-irony)
-(require 'setup-c)
-(require 'setup-cmake-ide)
+;;(require 'setup-c)
+;;(require 'setup-cmake-ide)
 (require 'setup-themes)
 
 
-(setq company-backends (delete 'company-semantic company-backends))
-(define-key c-mode-map  [(tab)] 'company-complete)
-(define-key c++-mode-map  [(tab)] 'company-complete)
+;;(setq company-backends (delete 'company-semantic company-backends))
+;;(define-key c-mode-map  [(tab)] 'company-complete)
+;;(define-key c++-mode-map  [(tab)] 'company-complete)
 
 
 
@@ -52,7 +52,8 @@
  '(package-selected-packages
    (quote
     (zygospore helm-gtags helm yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu)))
- '(safe-local-variable-values (quote ((cmake-ide-build-dir pwd)))))
+ ;;'(safe-local-variable-values (quote ((cmake-ide-build-dir pwd))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

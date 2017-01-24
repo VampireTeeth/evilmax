@@ -11,11 +11,18 @@
           (lambda () (interactive)
             (setq show-trailing-whitespace 1)))
 
+
 ;; use space to indent by default
 (setq-default indent-tabs-mode nil)
 
 ;; set appearance of a tab that is represented by 4 spaces
 (setq-default tab-width 4)
+
+;; set indentation for nxml-mode
+(setq
+ nxml-child-indent 4
+ nxml-attribute-indent 4
+ nxml-slash-auto-complete-flag t)
 
 ;; Compilation
 (global-set-key (kbd "<f5>") (lambda ()
