@@ -28,10 +28,9 @@
 (require 'setup-editing)
 ;;(require 'setup-rtags)
 ;;(require 'setup-irony)
-;;(require 'setup-c)
+(require 'setup-c)
 ;;(require 'setup-cmake-ide)
 (require 'setup-themes)
-
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
 ;;(define-key c-mode-map  [(tab)] 'company-complete)
