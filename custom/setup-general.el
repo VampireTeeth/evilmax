@@ -43,6 +43,7 @@
 (use-package company
   :init
   (global-company-mode 1)
+  (global-set-key (kbd "M-'") 'company-complete)
   ;;(delete 'company-semantic company-backends)
   )
 ;; (define-key c-mode-map  [(control tab)] 'company-complete)
@@ -63,7 +64,16 @@
 
 ;; activate whitespace-mode to view all whitespace characters
 (global-set-key (kbd "C-c w") 'whitespace-mode)
-(windmove-default-keybindings)
+;;(windmove-default-keybindings)
+(global-set-key (kbd "C-x w j") 'windmove-down)
+(global-set-key (kbd "C-x w k") 'windmove-up)
+(global-set-key (kbd "C-x w h") 'windmove-left)
+(global-set-key (kbd "C-x w l") 'windmove-right)
+
+(use-package ace-window
+  :ensure t
+  :config
+  (global-set-key (kbd "C-1") 'ace-window))
 
 (use-package ido-vertical-mode
   :ensure t
