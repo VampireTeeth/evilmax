@@ -25,6 +25,7 @@
 ;;  (require 'setup-helm-gtags))
 ;; (require 'setup-ggtags)
 ;;(require 'setup-cedet)
+(require 'setup-ivy-counsel)
 (require 'setup-editing)
 ;;(require 'setup-rtags)
 ;;(require 'setup-irony)
