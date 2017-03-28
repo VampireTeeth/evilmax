@@ -99,4 +99,14 @@
 (setq backup-inhibited t)
 
 
+(use-package fiplr
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x f") 'fiplr-find-file)
+  (setq fiplr-root-markers '(".git" ".svn"))
+  (setq fiplr-ignored-globs
+        '((directories (".git" ".svn"))
+          (files ("*.jpg" "*.png" "*.zip" "*~"))))
+  )
+
 (provide 'setup-general)
