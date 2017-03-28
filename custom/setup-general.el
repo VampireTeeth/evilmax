@@ -70,6 +70,9 @@
 (global-set-key (kbd "C-x w k") 'windmove-up)
 (global-set-key (kbd "C-x w h") 'windmove-left)
 (global-set-key (kbd "C-x w l") 'windmove-right)
+(global-set-key (kbd "RET") 'newline-and-indent)
+(setq backup-inhibited t)
+
 
 (use-package ace-window
   :ensure t
@@ -95,8 +98,6 @@
   (smex-initialize)
   (global-set-key (kbd "M-x") 'smex)
   (global-set-key (kbd "M-X") 'smex-major-mode-commands))
-(global-set-key (kbd "RET") 'newline-and-indent)
-(setq backup-inhibited t)
 
 
 (use-package fiplr
