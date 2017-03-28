@@ -33,6 +33,8 @@
 ;;(require 'setup-cmake-ide)
 (require 'setup-themes)
 
+(require 'setup-web-ide)
+
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
 ;;(define-key c-mode-map  [(tab)] 'company-complete)
