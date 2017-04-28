@@ -110,4 +110,7 @@
           (files ("*.jpg" "*.png" "*.zip" "*~"))))
   )
 
+(use-package highlight-parentheses
+  :ensure t)
+
 (provide 'setup-general)
