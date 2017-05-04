@@ -1,6 +1,13 @@
 (require 'package)
 (add-to-list 'package-archives
-         '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
+
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+(when (boundp 'package-pinned-packages)
+  (setq package-pinned-packages
+        '((cider . "melpa-stable"))))
 
 (package-initialize)
 
@@ -34,6 +41,8 @@
 (require 'setup-themes)
 
 (require 'setup-web-ide)
+
+(require 'setup-clojure-ide)
 
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
