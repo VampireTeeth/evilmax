@@ -94,6 +94,11 @@
   :init
   (setq iedit-toggle-key-default nil))
 
+(use-package highlight-parentheses
+  :ensure t
+  :init
+  (global-highlight-parentheses-mode t))
+
 ;; Customized functions
 (defun prelude-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
