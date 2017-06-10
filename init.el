@@ -35,6 +35,8 @@
 
 (require 'setup-web-ide)
 
+(require 'setup-eclim)
+
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
 ;;(define-key c-mode-map  [(tab)] 'company-complete)
