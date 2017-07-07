@@ -44,6 +44,10 @@
 
 (require 'setup-clojure-ide)
 
+(require 'setup-groovy)
+(require 'setup-gradle)
+
+
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
 ;;(define-key c-mode-map  [(tab)] 'company-complete)
