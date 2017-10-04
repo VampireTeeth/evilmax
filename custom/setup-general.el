@@ -39,6 +39,9 @@
  gdb-show-main t
  )
 
+;; Set up the font to Consolas
+(set-face-attribute 'default nil :family "Consolas" :height 110)
+
 ;; company
 (use-package company
   :init

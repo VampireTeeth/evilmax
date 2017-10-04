@@ -46,7 +46,7 @@
 
 (require 'setup-groovy)
 (require 'setup-gradle)
-
+(require 'setup-evil)
 
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
