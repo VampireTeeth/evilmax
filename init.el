@@ -47,6 +47,7 @@
 (require 'setup-groovy)
 (require 'setup-gradle)
 (require 'setup-evil)
+(require 'setup-ack)
 
 
 ;;(setq company-backends (delete 'company-semantic company-backends))

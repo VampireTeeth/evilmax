@@ -8,7 +8,9 @@
   (evil-mode 1))
 
 (use-package evil-surround
-  :ensure t)
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
 (use-package key-chord
   :ensure t
