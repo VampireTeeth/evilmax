@@ -41,7 +41,7 @@
 
 ;; Set up the font to Consolas for Windows
 (when (string-equal system-type "windows-nt")
-  set-face-attribute 'default nil :family "Consolas" :height 110)
+  (set-face-attribute 'default nil :family "Consolas" :height 110))
 
 ;; company
 (use-package company
