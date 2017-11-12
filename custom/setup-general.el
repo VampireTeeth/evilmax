@@ -39,8 +39,9 @@
  gdb-show-main t
  )
 
-;; Set up the font to Consolas
-(set-face-attribute 'default nil :family "Consolas" :height 110)
+;; Set up the font to Consolas for Windows
+(when (string-equal system-type "windows-nt")
+  set-face-attribute 'default nil :family "Consolas" :height 110)
 
 ;; company
 (use-package company
