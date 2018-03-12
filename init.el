@@ -49,6 +49,8 @@
 (require 'setup-gradle)
 (require 'setup-evil)
 (require 'setup-ack)
+(require 'setup-python)
+(require 'setup-elixir)
 
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
