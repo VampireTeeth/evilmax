@@ -51,6 +51,7 @@
 (require 'setup-ack)
 (require 'setup-python)
 (require 'setup-elixir)
+(require 'setup-golang)
 
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
