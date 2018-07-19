@@ -6,6 +6,9 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
 (when (boundp 'package-pinned-packages)
   (setq package-pinned-packages
         '((cider . "melpa-stable"))))
@@ -53,7 +56,25 @@
 (require 'setup-elixir)
 (require 'setup-golang)
 
+(if (executable-find "fzf")
+    (require 'setup-fzf))
+
 
 ;;(setq company-backends (delete 'company-semantic company-backends))
 ;;(define-key c-mode-map  [(tab)] 'company-complete)
 ;;(define-key c++-mode-map  [(tab)] 'company-complete)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(hl-paren-colors (quote ("medium spring green" "gold" "tomato" "orchid")))
+ '(package-selected-packages
+   (quote
+    (fzf company-go flymake-go go-mode elixir-mode elpy ack nlinum-relative key-chord evil-surround evil gradle-mode groovy-mode clj-refactor cider emmet-mode rjsx-mode js2-mode web-mode atom-one-dark-theme abyss-theme iedit anzu ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights highlight-parentheses fiplr smex ido-ubiquitous ido-vertical-mode ace-window zygospore projectile company use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
