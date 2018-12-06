@@ -55,6 +55,7 @@
 (require 'setup-python)
 (require 'setup-elixir)
 (require 'setup-golang)
+(require 'setup-typescript)
 
 (if (executable-find "fzf")
     (require 'setup-fzf))
@@ -71,7 +72,7 @@
  '(hl-paren-colors (quote ("medium spring green" "gold" "tomato" "orchid")))
  '(package-selected-packages
    (quote
-    (fzf company-go flymake-go go-mode elixir-mode elpy ack nlinum-relative key-chord evil-surround evil gradle-mode groovy-mode clj-refactor cider emmet-mode rjsx-mode js2-mode web-mode atom-one-dark-theme abyss-theme iedit anzu ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights highlight-parentheses fiplr smex ido-ubiquitous ido-vertical-mode ace-window zygospore projectile company use-package))))
+    (tide fzf company-go flymake-go go-mode elixir-mode elpy ack nlinum-relative key-chord evil-surround evil gradle-mode groovy-mode clj-refactor cider emmet-mode rjsx-mode js2-mode web-mode atom-one-dark-theme abyss-theme iedit anzu ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights highlight-parentheses fiplr smex ido-ubiquitous ido-vertical-mode ace-window zygospore projectile company use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
