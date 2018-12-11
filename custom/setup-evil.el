@@ -5,7 +5,8 @@
   (define-key evil-normal-state-map "," my-leader-map)
   ;; binding ",b"
   (define-key my-leader-map "b" 'list-buffers)
-  (evil-mode 1))
+  (evil-mode 1)
+  (setq-default evil-shift-width 2))
 
 (use-package evil-surround
   :ensure t
