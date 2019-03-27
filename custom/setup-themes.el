@@ -1,9 +1,6 @@
-(use-package abyss-theme
-  :ensure t)
-
 (use-package atom-one-dark-theme
   :ensure t
-  :config
-  (load-theme 'atom-one-dark t))
+  :hook (after-init-hook . (lambda () (load-theme 'atom-one-dark))))
+
 
 (provide 'setup-themes)

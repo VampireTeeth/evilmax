@@ -1,4 +1,3 @@
-
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
@@ -59,11 +58,6 @@
 
 (if (executable-find "fzf")
     (require 'setup-fzf))
-
-
-;;(setq company-backends (delete 'company-semantic company-backends))
-;;(define-key c-mode-map  [(tab)] 'company-complete)
-;;(define-key c++-mode-map  [(tab)] 'company-complete)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -72,7 +66,7 @@
  '(hl-paren-colors (quote ("medium spring green" "gold" "tomato" "orchid")))
  '(package-selected-packages
    (quote
-    (tide fzf company-go flymake-go go-mode elixir-mode elpy ack nlinum-relative key-chord evil-surround evil gradle-mode groovy-mode clj-refactor cider emmet-mode rjsx-mode js2-mode web-mode atom-one-dark-theme abyss-theme iedit anzu ws-butler dtrt-indent clean-aindent-mode yasnippet undo-tree volatile-highlights highlight-parentheses fiplr smex ido-ubiquitous ido-vertical-mode ace-window zygospore projectile company use-package))))
+    (tide zygospore ws-butler web-mode volatile-highlights use-package typescript-mode smex rjsx-mode python-mode projectile nlinum-relative key-chord js2-refactor iedit ido-vertical-mode ido-ubiquitous highlight-parentheses groovy-mode gradle-mode ggtags foggy-night-theme flymake-go flycheck fiplr evil-surround ensime emmet-mode elpy elixir-mode dtrt-indent company-go clj-refactor clean-aindent-mode caroline-theme atom-one-dark-theme anzu ack ace-window abyss-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

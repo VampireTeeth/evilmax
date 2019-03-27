@@ -23,14 +23,21 @@
 ;;
 ;;(add-hook 'typescript-mode-hook #'setup-tide-mode))
 
-(use-package tide
+
+(use-package typescript-mode
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
+  (setq typescript-indent-level 2))
+
+(use-package tide
+  :ensure t
+  :after
+  (typescript-mode company flycheck)
+  :hook
+  ((typescript-mode . tide-setup)
+   (typescript-mode . tide-hl-identifier-mode)))
 
 (provide 'setup-typescript)
+;;; setup-typescript.el ends here
