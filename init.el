@@ -52,7 +52,10 @@
 (require 'setup-evil)
 (require 'setup-ack)
 (require 'setup-python)
-(require 'setup-elixir)
+
+(if (executable-find "iex")
+    (require 'setup-elixir))
+
 (require 'setup-golang)
 (require 'setup-typescript)
 
