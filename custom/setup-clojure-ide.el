@@ -11,8 +11,9 @@
 (use-package clj-refactor
   :ensure t
   :config
-  (clj-refactor-mode 1)
+  (add-hook 'clojure-mode-hook (lambda ()
+                                (clj-refactor-mode 1)))
   (yas-minor-mode 1)
-  (cljr-add-keybindings-with-prefix "C-c C-f"))
+  (cljr-add-keybindings-with-prefix "C-c C-r C-f"))
 
 (provide 'setup-clojure-ide)
