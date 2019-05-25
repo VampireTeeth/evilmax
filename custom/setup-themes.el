@@ -14,4 +14,7 @@
   :ensure t
   :config)
 
+(use-package cyberpunk-theme
+  :ensure t)
+
 (provide 'setup-themes)
