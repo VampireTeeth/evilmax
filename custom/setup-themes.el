@@ -1,11 +1,16 @@
 (use-package atom-one-dark-theme
   :ensure t
-  :config
-  (add-hook 'after-init-hook (lambda ()
-                               (message "Loading theme atom-one-dark theme")
-                               (load-theme 'atom-one-dark t))))
+  :config)
 
 (use-package darktooth-theme
+  :ensure t
+  :config)
+
+(use-package badger-theme
+  :ensure t
+  :config)
+
+(use-package color-theme-sanityinc-tomorrow
   :ensure t
   :config)
 
