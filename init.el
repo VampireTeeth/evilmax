@@ -65,3 +65,5 @@
 (when (executable-find "fzf")
   (require 'setup-fzf)
   (message "Setup fzf done"))
+
+(require 'setup-terraform)
