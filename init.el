@@ -59,11 +59,18 @@
   (require 'setup-elixir)
   (message "Setup elixir done"))
 
-(require 'setup-golang)
+(when (executable-find "go")
+  (require 'setup-golang))
+
+(when (executable-find "rustc")
+  (require 'setup-rust)
+  (message "Setup rust done"))
+
 (require 'setup-typescript)
 
 (when (executable-find "fzf")
   (require 'setup-fzf)
   (message "Setup fzf done"))
+
 
 (require 'setup-terraform)
