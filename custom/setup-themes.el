@@ -12,7 +12,10 @@
 
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
-  :config)
+  :config
+  (add-hook 'after-init-hook
+            (lambda ()
+              (load-theme 'sanityinc-tomorrow-eighties t))))
 
 (use-package cyberpunk-theme
   :ensure t)
