@@ -1,6 +1,5 @@
 (use-package gradle-mode
   :ensure t
-  :config
-  (gradle-mode 1))
+  :config)
 
 (provide 'setup-gradle)
